@@ -1,0 +1,20 @@
+<div class="query">
+    <input id="queryString" class="text" placeholder="enter query" />
+    <button v-on:click="sendQuery">Query</button>
+</div>
+<div v-if="message" class="message-detail">
+    <div class=text></div>
+    <div class="text">{{message}}</div>
+</div>
+<div id="logs">
+    <div id="messages">
+        <div class="message" v-for="message in messages">
+            <a v-on:click="getItem(message.id)">
+                <div class="text date">{{message.Timestamp}} - </div>
+                <div v-bind:class="message.Level" class="text">{{message.Level}}</div>
+                <div class="text"> - </div>
+                <div class="text">{{message.Message}}</div>
+            </a>
+        </div>
+    </div>
+</div>
