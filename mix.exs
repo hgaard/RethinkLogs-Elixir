@@ -31,6 +31,7 @@ defmodule RethinkLogs.Mixfile do
     [{:phoenix, "~> 1.1.6"},
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:rethinkdb, "~> 0.4.0"},
      {:gettext, "~> 0.9"},
      {:cowboy, "~> 1.0"}]
   end

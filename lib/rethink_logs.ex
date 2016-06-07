@@ -11,6 +11,7 @@ defmodule RethinkLogs do
       supervisor(RethinkLogs.Endpoint, []),
       # Here you could define other workers and supervisors as children
       # worker(RethinkLogs.Worker, [arg1, arg2, arg3]),
+      worker(RethinkLogs.Database, [[ host: 'localhost', port: 32769]]) #Docker port
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
@@ -25,4 +26,8 @@ defmodule RethinkLogs do
     RethinkLogs.Endpoint.config_change(changed, removed)
     :ok
   end
+end
+
+defmodule RethinkLogs.Database do
+  use RethinkDB.Connection
 end
